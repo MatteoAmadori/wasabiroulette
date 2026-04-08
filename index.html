@@ -16,12 +16,21 @@
     font-style: normal;
   }
 
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
   body {
     font-family: 'Berthold Block', 'Kosugi Maru', sans-serif;
     text-align: center;
-    margin: 0;
-    padding: 0;
+  
     background-color: #fff8f0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-tap-highlight-color: transparent;
+    min-height: 100dvh;
   }
 
   body::before {
@@ -50,6 +59,7 @@
     color: white;
     cursor: pointer;
     font-family: 'Berthold Block', 'Kosugi Maru', sans-serif;
+    touch-action: manipulation
   }
 
   button:hover {
@@ -59,8 +69,8 @@
 
   
   button:active {
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    transform: translateY(1px);
+    transform: scale(0.97);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
   }
 
   .grid {
