@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wasabi Roulette</title>
 
 <!-- Google Font giapponese -->
@@ -41,16 +41,29 @@
   }
 
   button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    background: linear-gradient(90deg, #ff922b, #ff7f08);
-    color: white;
-    cursor: pointer;
-    font-family: 'Berthold Block', 'Kosugi Maru', sans-serif;
-  }
+  margin-top: 15px;
+  padding: 14px 20px;
+
+  width: 90%;
+  max-width: 320px;
+
+  font-size: 18px;
+  font-weight: bold;
+
+  border: none;
+  border-radius: 14px;
+
+  background: linear-gradient(135deg, #ff922b, #ff6a00);
+  color: white;
+
+  cursor: pointer;
+
+  font-family: 'Berthold Block', 'Kosugi Maru', sans-serif;
+
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transition: all 0.2s ease;
+  touch-action: manipulation;
+}
 
   button:hover {
     background: #ff922b;
@@ -59,21 +72,23 @@
 
   
   button:active {
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    transform: translateY(1px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    transform: scale(0.97);
   }
 
   .grid {
     display: grid;
-    grid-template-columns: repeat(5, 90px);
-    gap: 15px;
+    gap: 10px;
     justify-content: center;
-    margin-top: 30px;
+    margin: 20px auto;
+    width: 95vw;
+    max-width: 500px;
   }
 
   .card {
-    width: 90px;
-    height: 90px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    min-width: 60px;
     perspective: 1000px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -158,6 +173,24 @@
     padding: 8px 16px;
     border-radius: 10px;
   }
+  @media (max-width: 600px) {
+  h1 {
+    font-size: 1.8em;
+  }
+
+  .grid {
+    gap: 8px;
+  }
+
+  .card-face {
+    font-size: 24px;
+  }
+
+  .back img {
+    width: 60%;
+    height: 60%;
+  }
+}
 </style>
 </head>
 
@@ -195,6 +228,7 @@ function scegliSfondo() {
 
 function startGame() {
   scegliSfondo();
+  aggiornaGriglia();
   grid.innerHTML = "";
   cards = [];
   clicks = 0;
@@ -284,7 +318,10 @@ function randomColor() {
   const colors = ["#ff0", "#f0f", "#0ff", "#ff5722", "#4caf50"];
   return colors[Math.floor(Math.random() * colors.length)];
 }
-
+function aggiornaGriglia() {
+  const colonne = Math.ceil(Math.sqrt(totalCards));
+  grid.style.gridTemplateColumns = `repeat(${colonne}, 1fr)`;
+}
 startGame();
 </script>
 
