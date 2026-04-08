@@ -16,13 +16,20 @@
     font-style: normal;
   }
 
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
   body {
     font-family: 'Berthold Block', 'Kosugi Maru', sans-serif;
     text-align: center;
-    margin: 0;
-    padding: 0;
-    background-color: #fff8f0;
     -webkit-tap-highlight-color: transparent;
+    background-color: #fff8f0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100dvh;
   }
 
   body::before {
