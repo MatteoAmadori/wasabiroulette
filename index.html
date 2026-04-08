@@ -16,32 +16,23 @@
     font-style: normal;
   }
 
-  html, body {
-    height: 100%;
-    margin: 0;
-  }
-  
   body {
     font-family: 'Berthold Block', 'Kosugi Maru', sans-serif;
     text-align: center;
-  
+    margin: 0;
+    padding: 0;
     background-color: #fff8f0;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-  
-    min-height: 100dvh;
   }
 
   body::before {
     content: "";
-    position: column;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(255, 248, 240, 0.6);
-    z-index: 0;
+    z-index: -1;
   }
 
   h1 {
@@ -50,29 +41,16 @@
   }
 
   button {
-  margin-top: 15px;
-  padding: 14px 20px;
-
-  width: 90%;
-  max-width: 320px;
-
-  font-size: 18px;
-  font-weight: bold;
-
-  border: none;
-  border-radius: 14px;
-
-  background: linear-gradient(135deg, #ff922b, #ff6a00);
-  color: white;
-
-  cursor: pointer;
-
-  font-family: 'Berthold Block', 'Kosugi Maru', sans-serif;
-
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-  transition: all 0.2s ease;
-  touch-action: manipulation;
-}
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #ff922b, #ff7f08);
+    color: white;
+    cursor: pointer;
+    font-family: 'Berthold Block', 'Kosugi Maru', sans-serif;
+  }
 
   button:hover {
     background: #ff922b;
@@ -81,8 +59,8 @@
 
   
   button:active {
-    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-    transform: scale(0.97);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transform: translateY(1px);
   }
 
   .grid {
@@ -101,10 +79,6 @@
     perspective: 1000px;
     cursor: pointer;
     transition: all 0.3s ease;
-    webkit-tap-highlight-color: transparent; /* rimuove blu */
-    user-select: none; /* evita selezione testo */
-    -webkit-user-select: none;
-    touch-action: manipulation; /* tap più veloce */
   }
 
   .card-inner {
@@ -175,7 +149,7 @@
   }
 
   .credits {
-    margin-bottom: 20px auto;
+    margin: 20px auto;
     text-align: center;
     font-family: 'Berthold Block', 'Kosugi Maru', sans-serif;
     letter-spacing: 1px;
@@ -184,26 +158,26 @@
     display: block;
     width: fit-content;
     padding: 8px 16px;
-    border-radius: 60px;
+    border-radius: 10px;
   }
   @media (max-width: 600px) {
-  h1 {
-    font-size: 1.8em;
+    h1 {
+      font-size: 1.8em;
+    }
+  
+    .grid {
+      gap: 8px;
+    }
+  
+    .card-face {
+      font-size: 24px;
+    }
+  
+    .back img {
+      width: 60%;
+      height: 60%;
+    }
   }
-
-  .grid {
-    gap: 8px;
-  }
-
-  .card-face {
-    font-size: 24px;
-  }
-
-  .back img {
-    width: 60%;
-    height: 60%;
-  }
-}
 </style>
 </head>
 
