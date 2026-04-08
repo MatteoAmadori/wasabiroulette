@@ -26,13 +26,13 @@
   }
 
   /* Overlay bianco semitrasparente per leggibilità */
-  /*body::before {
+  body::before {
     content: "";
     position: absolute;
     inset: 0;
     background: rgba(255, 255, 255, 0.6);
     z-index: 0;
-  }*/
+  }
 
   /* Contenuto sopra overlay */
   .content {
@@ -50,7 +50,16 @@
     border-bottom: 1px dotted #ccc;
     padding-bottom: 5px;
   }
-
+  
+  h2 {
+    font-size: 2em;
+    margin: 15px 0;
+    font-weight: medium;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+  }
+  
   /* Pulsante stile arcade / mobile */
   .play-button {
     padding: 18px 40px;
@@ -89,13 +98,30 @@
     <h1><span class="dish">Nigiri Salmone</span><span class="price">0.50€</span></h1>
     <h1><span class="dish">Nigiri Tonno</span><span class="price">0.60€</span></h1>
     <h1><span class="dish">Nigiri Gambero</span><span class="price">0.55€</span></h1>
+    <h1><span class="dish">Nigiri Polpo</span><span class="price">0.65€</span></h1>
+    <h1><span class="dish">Nigiri Branzino</span><span class="price">0.70€</span></h1>
     <h1><span class="dish">Maki Salmone</span><span class="price">1.50€</span></h1>
     <h1><span class="dish">Maki Tonno</span><span class="price">1.60€</span></h1>
+    <h1><span class="dish">Maki Avocado</span><span class="price">1.40€</span></h1>
+    <h1><span class="dish">Maki Cetriolo</span><span class="price">1.30€</span></h1>
+    <h1><span class="dish">Maki Tempura</span><span class="price">1.80€</span></h1>
     <h1><span class="dish">California Roll</span><span class="price">2.00€</span></h1>
     <h1><span class="dish">Uramaki Avocado</span><span class="price">1.80€</span></h1>
+    <h1><span class="dish">Uramaki Salmone</span><span class="price">2.10€</span></h1>
+    <h1><span class="dish">Uramaki Tonno</span><span class="price">2.20€</span></h1>
+    <h1><span class="dish">Uramaki Gambero Tempura</span><span class="price">2.50€</span></h1>
     <h1><span class="dish">Sashimi Salmone</span><span class="price">2.50€</span></h1>
     <h1><span class="dish">Sashimi Tonno</span><span class="price">2.60€</span></h1>
-    <h1><span class="dish">Ebi Tempura</span><span class="price">1.90€</span></h1>
+    <h1><span class="dish">Sashimi Branzino</span><span class="price">2.70€</span></h1>
+    <h1><span class="dish">Sashimi Polpo</span><span class="price">2.80€</span></h1>
+    <h1><span class="dish">Temaki Salmone</span><span class="price">3.00€</span></h1>
+    <h1><span class="dish">Temaki Tonno</span><span class="price">3.20€</span></h1>
+    <h1><span class="dish">Temaki Avocado</span><span class="price">2.80€</span></h1>
+    <h1><span class="dish">Temaki Gambero Tempura</span><span class="price">3.50€</span></h1>
+    <h1><span class="dish">Dragon Roll</span><span class="price">4.50€</span></h1>
+    <h1><span class="dish">Rainbow Roll</span><span class="price">4.80€</span></h1>
+    <h1><span class="dish">Volcano Roll</span><span class="price">5.00€</span></h1>
+    <h1><span class="dish">Tiger Roll</span><span class="price">4.70€</span></h1>
     <button class="play-button" onclick="location.href='gioco.html'">🎮 Gioca al Wasabi Roulette</button>
   </div>
 
