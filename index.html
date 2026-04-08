@@ -42,10 +42,13 @@
   }
 
   h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
-    color: #ff6a00;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    font-size: 1.8em;
+    margin: 10px 0;
+    font-weight: normal;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dotted #ccc;
+    padding-bottom: 5px;
   }
 
   /* Pulsante stile arcade / mobile */
@@ -72,24 +75,17 @@
     box-shadow: 0 3px 8px rgba(0,0,0,0.2);
   }
 
-  /* Credits in basso */
-  .credits {
-    position: absolute;
-    bottom: 10px;
-    width: 100%;
+  .menu-title {
     text-align: center;
-    font-size: 14px;
-    color: #222;
-    z-index: 1;
-    background: rgba(255,255,255,0.6);
-    padding: 5px 0;
-    border-radius: 8px;
+    font-size: 2.5em;
+    color: #ff6a00;
+    margin-bottom: 20px;
   }
 </style>
 </head>
 <body>
   <div class="content">
-    <h1>Menu Sushi ALL YOU CAN EAT</h1>
+    <div class="menu-title">🍣 Menu Sushi 🍣</div>
     <h1><span class="dish">Nigiri Salmone</span><span class="price">0.50€</span></h1>
     <h1><span class="dish">Nigiri Tonno</span><span class="price">0.60€</span></h1>
     <h1><span class="dish">Nigiri Gambero</span><span class="price">0.55€</span></h1>
