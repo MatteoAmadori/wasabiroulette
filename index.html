@@ -6,33 +6,95 @@
 <title>Menu Sushi</title>
 <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
 <style>
+  /* Layout e font */
   body {
+    margin: 0;
+    padding: 0;
     font-family: 'Kosugi Maru', sans-serif;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100dvh;
-    margin: 0;
-    background-color: #fff8f0;
+
+    /* Sfondo menu sushi */
+    background-image: url('images/sushi-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
   }
-  h1 { font-size: 2.5em; margin-bottom: 20px; }
-  button {
-    padding: 15px 30px;
-    font-size: 18px;
+
+  /* Overlay bianco semitrasparente per leggibilità */
+  body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.6);
+    z-index: 0;
+  }
+
+  /* Contenuto sopra overlay */
+  .content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #ff6a00;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+
+  /* Pulsante stile arcade / mobile */
+  .play-button {
+    padding: 18px 40px;
+    font-size: 20px;
+    font-weight: bold;
     border: none;
-    border-radius: 12px;
+    border-radius: 16px;
     background: linear-gradient(135deg, #ff922b, #ff6a00);
     color: white;
     cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
     transition: all 0.2s ease;
   }
-  button:hover { transform: translateY(-2px); }
-  button:active { transform: scale(0.97); }
+
+  .play-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+  }
+
+  .play-button:active {
+    transform: scale(0.97);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  }
+
+  /* Credits in basso */
+  .credits {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #222;
+    z-index: 1;
+    background: rgba(255,255,255,0.6);
+    padding: 5px 0;
+    border-radius: 8px;
+  }
 </style>
 </head>
 <body>
-<h1>🍣 Menu Sushi 🍣</h1>
-<button onclick="location.href='gioco.html'">🎮 Gioca al Wasabi Roulette</button>
+  <div class="content">
+    <h1>🍣 Menu Sushi 🍣</h1>
+    <button class="play-button" onclick="location.href='gioco.html'">🎮 Gioca al Wasabi Roulette</button>
+  </div>
+
+  <div class="credits">
+    Amadori, Coluccia, Sparacio, Fazzalari
+  </div>
 </body>
 </html>
