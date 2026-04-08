@@ -18,7 +18,7 @@
     align-items: center;
 
     /* Sfondo menu sushi */
-    background-image: url('images/sushi-background.jpg');
+    background-image: url('images/sushi-menu-background.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -42,10 +42,28 @@
   }
 
   h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
+    font-size: 1.8em;
+    margin: 10px 0;
+    font-weight: normal;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dotted #ccc;
+    padding-bottom: 5px;
+  }
+
+  .dish {
+    flex: 1;
+  }
+
+  .price {
+    flex-shrink: 0;
+  }
+
+  .menu-title {
+    text-align: center;
+    font-size: 2.5em;
     color: #ff6a00;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    margin-bottom: 20px;
   }
 
   /* Pulsante stile arcade / mobile */
@@ -72,29 +90,23 @@
     box-shadow: 0 3px 8px rgba(0,0,0,0.2);
   }
 
-  /* Credits in basso */
-  .credits {
-    position: absolute;
-    bottom: 10px;
-    width: 100%;
-    text-align: center;
-    font-size: 14px;
-    color: #222;
-    z-index: 1;
-    background: rgba(255,255,255,0.6);
-    padding: 5px 0;
-    border-radius: 8px;
-  }
 </style>
 </head>
 <body>
   <div class="content">
     <h1>🍣 Menu Sushi 🍣</h1>
+    <h1><span class="dish">Nigiri Salmone</span><span class="price">0.50€</span></h1>
+    <h1><span class="dish">Nigiri Tonno</span><span class="price">0.60€</span></h1>
+    <h1><span class="dish">Nigiri Gambero</span><span class="price">0.55€</span></h1>
+    <h1><span class="dish">Maki Salmone</span><span class="price">1.50€</span></h1>
+    <h1><span class="dish">Maki Tonno</span><span class="price">1.60€</span></h1>
+    <h1><span class="dish">California Roll</span><span class="price">2.00€</span></h1>
+    <h1><span class="dish">Uramaki Avocado</span><span class="price">1.80€</span></h1>
+    <h1><span class="dish">Sashimi Salmone</span><span class="price">2.50€</span></h1>
+    <h1><span class="dish">Sashimi Tonno</span><span class="price">2.60€</span></h1>
+    <h1><span class="dish">Ebi Tempura</span><span class="price">1.90€</span></h1>
     <button class="play-button" onclick="location.href='gioco.html'">🎮 Gioca al Wasabi Roulette</button>
   </div>
 
-  <div class="credits">
-    Amadori, Coluccia, Sparacio, Fazzalari
-  </div>
 </body>
 </html>
