@@ -246,6 +246,24 @@ function startGame() {
     cards[index] = "wasabi";
   }
 
+  const sushiImages = [
+    'images/sushi1.png',
+    'images/sushi2.png',
+    'images/sushi3.png',
+    'images/sushi4.png'
+  ];
+
+  const wasabiImages = [
+    'images/wasabi1.png',
+    'images/wasabi2.png',
+    'images/wasabi3.png'
+  ];
+
+  function getRandomImage(arr) {
+    const index = Math.floor(Math.random() * arr.length);
+    return arr[index];
+  }
+
   cards.forEach((type) => {
     const card = document.createElement("div");
     card.classList.add("card");
@@ -260,9 +278,13 @@ function startGame() {
     const back = document.createElement("div");
     back.classList.add("card-face", "back");
 
-    // Inserimento immagine PNG sopra sfondo arancione
     const img = document.createElement('img');
-    img.src = (type === "wasabi") ? 'images/wasabi.png' : 'images/salmon_nigiri.png';
+
+    if (type === "wasabi") {
+      img.src = getRandomImage(wasabiImages);
+    } else {
+      img.src = getRandomImage(sushiImages);
+    }
     back.appendChild(img);
 
     inner.appendChild(front);
