@@ -127,21 +127,17 @@
   <div class="content">
     <menu>DATI</menu>
     <topsection>VITTORIE</topsection>
-    <h1><span class="dish">pranzo - lunch</span><span class="price">20.00€</span></h1>
-    <h1>
-  <span class="dish">Sconfitte</span>
-  <span class="price" id="val1">0</span>
-</h1>
+    <h1><span class="price" id="val1">0</span></h1>
   </div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 <script>
 const db = window.supabase.createClient(
   "https://cfzbgfawnricbcktjofu.supabase.co",
-  "LA_TUA_ANON_KEY"
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNmemJnZmF3bnJpY2Jja3Rqb2Z1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU4MjY1NjksImV4cCI6MjA5MTQwMjU2OX0.VLNV4ag01gdgDSd-Gjwg--RLK29nGvL3y7rHd5pvaDg"
 );
 async function caricaDati() {
   let { data, error } = await db
-    .from('contatori')
+    .from('WasabiRouletteData')
     .select('*')
     .eq('id', 1)
     .single();
