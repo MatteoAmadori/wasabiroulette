@@ -141,7 +141,18 @@
   .front {
     background: linear-gradient(145deg, #ffa94d, #ff922b);
   }
-
+  #redFlash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: red;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 99999;
+    transition: opacity 0.1s ease;
+  }
   .back {
     background-color: #ff922b; /* colore arancione */
     transform: rotateY(180deg);
@@ -198,6 +209,7 @@
 <body>
 
 <h1>🍣 WASABI ROULETTE 🍣</h1>
+<div id="redFlash"></div>
 <p>Gira 5 sushi evitando il wasabi!</p>
 
 <button onclick="startGame()">🔁 Ricomincia 🔁</button>
@@ -317,6 +329,7 @@ function startGame() {
 
 function loseGame() {
   gameOver = true;
+  flashRed();
   aggiorna("val2", +1);
   cardElements.forEach(({ card }) => {
     card.classList.add("flipped");
@@ -325,7 +338,17 @@ function loseGame() {
   // Ritardo di 2 secondi prima del messaggio di sconfitta
   setTimeout(() => alert("Hai perso 😢 Ritenta e sarai più fortunato!"), 2000);
 }
+  
+function flashRed() {
+  const flash = document.getElementById("redFlash");
 
+  flash.style.opacity = "0.5";
+
+  setTimeout(() => {
+    flash.style.opacity = "0";
+  }, 500);
+}
+  
 function winGame() {
   createConfetti();
   aggiorna("val1", +1);
