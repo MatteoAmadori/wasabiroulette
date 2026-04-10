@@ -237,6 +237,7 @@ function startGame() {
   grid.innerHTML = "";
   cards = [];
   clicks = 0;
+  wasabis = 0;
   gameOver = false;
   cardElements = [];
 
@@ -303,8 +304,10 @@ function startGame() {
 
       if (type === "wasabi") wasabis = wasabis + 1;
 
-      if (clicks === maxClicks && wasabis === 0) winGame();
-      if (clicks === maxClicks && wasabis >= 1) loseGame();
+      if (clicks >= maxClicks) {
+        if (wasabis === 0) winGame();
+        else loseGame();
+      }
     });
 
     grid.appendChild(card);
