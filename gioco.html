@@ -217,7 +217,7 @@ const db = window.supabase.createClient(
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNmemJnZmF3bnJpY2Jja3Rqb2Z1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU4MjY1NjksImV4cCI6MjA5MTQwMjU2OX0.VLNV4ag01gdgDSd-Gjwg--RLK29nGvL3y7rHd5pvaDg"
 );
   
-let cards, clicks, gameOver;
+let cards, clicks, gameOver, wasabis;
 let cardElements = [];
 const grid = document.getElementById("grid");
 
@@ -301,9 +301,10 @@ function startGame() {
       card.classList.add("flipped");
       clicks++;
 
-      if (type === "wasabi") loseGame();
+      if (type === "wasabi") wasabis = wasabis + 1;
 
       if (clicks === maxClicks && !gameOver) winGame();
+      if (clicks === maxClicks && wasabis >= 1) loseGame();
     });
 
     grid.appendChild(card);
