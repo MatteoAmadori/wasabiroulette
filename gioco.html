@@ -153,6 +153,7 @@
     pointer-events: none;
     z-index: 99999;
     transition: opacity 0.1s ease;
+    backdrop-filter: blur(0px);
   }
   
   .back {
@@ -344,11 +345,14 @@ function loseGame() {
 function flashRed() {
   const flash = document.getElementById("redFlash");
 
+  // attiva rosso + blur
   flash.style.opacity = "0.5";
+  flash.style.backdropFilter = "blur(6px)";
 
   setTimeout(() => {
     flash.style.opacity = "0";
-  }, 10);
+    flash.style.backdropFilter = "blur(0px)";
+  }, 100);
 }
   
 function winGame() {
