@@ -157,7 +157,7 @@ function mostraDati(dati) {
   document.getElementById("val1").innerText = dati.val1;
   document.getElementById("val2").innerText = dati.val2;
   const money = dati.val1*(0.25)-dati.val2*(0.15);
-  document.getElementById("money").innerText = money;
+  document.getElementById("money").innerText = money.toFixed(2);
 }
 caricaDati();
 setInterval(caricaDati, 3000);
