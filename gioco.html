@@ -313,7 +313,7 @@ function startGame() {
 
 function loseGame() {
   gameOver = true;
-  aggiorna(1, +1);
+  aggiorna(val1, +1);
   cardElements.forEach(({ card }) => {
     card.classList.add("flipped");
   });
