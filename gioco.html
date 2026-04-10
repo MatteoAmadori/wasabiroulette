@@ -303,7 +303,7 @@ function startGame() {
 
       if (type === "wasabi") wasabis = wasabis + 1;
 
-      if (clicks === maxClicks && !gameOver) winGame();
+      if (clicks === maxClicks && wasabis === 0) winGame();
       if (clicks === maxClicks && wasabis >= 1) loseGame();
     });
 
@@ -327,6 +327,9 @@ function winGame() {
   createConfetti();
   aggiorna("val1", +1);
   gameOver = true;
+  cardElements.forEach(({ card }) => {
+    card.classList.add("flipped");
+  });
   setTimeout(() => alert("Hai vinto! 🎉"), 1000);
 }
 
