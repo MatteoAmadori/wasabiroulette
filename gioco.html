@@ -313,7 +313,7 @@ function startGame() {
 
 function loseGame() {
   gameOver = true;
-  aggiorna("val1", +1);
+  aggiorna("val2", +1);
   cardElements.forEach(({ card }) => {
     card.classList.add("flipped");
   });
@@ -324,6 +324,7 @@ function loseGame() {
 
 function winGame() {
   createConfetti();
+  aggiorna("val1", +1);
   gameOver = true;
   setTimeout(() => alert("Hai vinto! 🎉"), 1000);
 }
