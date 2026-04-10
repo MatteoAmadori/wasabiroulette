@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>DATI</title>
+<link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+<style>
+  /* Layout e font */
+  body {
+    margin: 0;
+    padding: 20px;
+    font-family: 'Kosugi Maru', sans-serif;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('images/menu-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow-y: auto;
+  }
+
+  /* Overlay bianco semitrasparente per leggibilità */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.6);
+    z-index: 0;
+  }
+
+  /* Contenuto sopra overlay */
+  .content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  h1 {
+    width: 100%; 
+    max-width: 600px;
+    margin: 10px auto;
+    font-size: 1.2em;
+    font-weight: normal;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dotted #ccc;
+    padding-bottom: 5px;
+    text-align: left;
+    word-break: break-word;
+  }
+
+  section {
+    width: 100%; 
+    max-width: 600px;
+    margin: 10px auto;
+    font-size: 1.8em;
+    font-weight: bolder;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dotted #ccc;
+    padding-bottom: 5px;
+    text-align: left;
+    word-break: break-word;
+  }
+
+  topsection {
+    width: 100%; 
+    max-width: 600px;
+    margin-top: 30px;
+    font-size: 2.0em;
+    font-weight: bolder;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px;
+    padding-bottom: 5px;
+    text-align: left;
+    word-break: break-word;
+  }
+
+  .dish {
+    flex: 1;
+  }
+
+  .price {
+    flex-shrink: 0;
+  }
+
+  menu {
+    text-align: center;
+    font-size: 2.5em;
+    color: #ff6a00;
+    margin-bottom: 20px;
+    margin-right: 32px;
+  }
+
+  /* Pulsante stile arcade / mobile */
+  .play-button {
+    padding: 18px 40px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #ff922b, #ff6a00);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+    margin-bottom: 20px;
+  }
+
+  .play-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+  }
+
+  .play-button:active {
+    transform: scale(0.97);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  }
+
+</style>
+</head>
+<body>
+  <div class="content">
+    <menu>DATI</menu>
+    <topsection>VITTORIE</topsection>
+    <h1><span class="dish">pranzo - lunch</span><span class="price">20.00€</span></h1>
+    <h1>
+  <span class="dish">Sconfitte</span>
+  <span class="price" id="val1">0</span>
+</h1>
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script>
+const db = window.supabase.createClient(
+  "https://cfzbgfawnricbcktjofu.supabase.co",
+  "LA_TUA_ANON_KEY"
+);
+async function caricaDati() {
+  let { data, error } = await db
+    .from('contatori')
+    .select('*')
+    .eq('id', 1)
+    .single();
+
+  if (error || !data) {
+    console.error("Errore:", error);
+    return;
+  }
+
+  mostraDati(data);
+}
+function mostraDati(dati) {
+  document.getElementById("val1").innerText = dati.val1;
+}
+caricaDati();
+</script>
+</body>
+</html>
