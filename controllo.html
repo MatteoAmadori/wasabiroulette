@@ -130,7 +130,8 @@
     <h1><span class="price" id="val1">0</span></h1>
     <topsection>SCONFITTE</topsection>
     <h1><span class="price" id="val2">0</span></h1>
-    <button class="play-button">RESET</button>
+    <topsection>MONEY</topsection>
+    <h1><span class="price" id="money">0</span></h1>
   </div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 <script>
@@ -155,6 +156,8 @@ async function caricaDati() {
 function mostraDati(dati) {
   document.getElementById("val1").innerText = dati.val1;
   document.getElementById("val2").innerText = dati.val2;
+  const money = val1*(1-0.15*5)+val2*(-0.15);
+  document.getElementById("money").innerText = money;
 }
 caricaDati();
 setInterval(caricaDati, 3000);
