@@ -212,7 +212,7 @@
 const totalCards = 20;
 const wasabiCount = 4;
 const maxClicks = 5;
-const supabase = window.supabase.createClient(
+const db = window.supabase.createClient(
   "https://cfzbgfawnricbcktjofu.supabase.co",
   "sb_publishable_8c8x0_6uE5T4wqMwYGBwCA_lFZdoIJA"
 );
@@ -313,7 +313,7 @@ function startGame() {
 
 function loseGame() {
   gameOver = true;
-  aggiorna(val1, +1);
+  aggiorna("val1", +1);
   cardElements.forEach(({ card }) => {
     card.classList.add("flipped");
   });
@@ -329,7 +329,7 @@ function winGame() {
 }
 
 async function caricaValori() {
-  let { data, error } = await supabase
+  let { data, error } = await db
     .from('contatori')
     .select('*')
     .eq('id', 1)
@@ -344,13 +344,13 @@ async function caricaValori() {
 }
   
 async function aggiorna(colonna, delta) {
-let { data } = await supabase
+let { data } = await db
   .from('contatori')
   .select('*')
   .eq('id', 1)
   .single();
 let nuovoValore = data[colonna] + delta;
-await supabase
+await db
   .from('contatori')
   .update({ [colonna]: nuovoValore })
   .eq('id', 1);
