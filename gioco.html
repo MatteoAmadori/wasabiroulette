@@ -207,12 +207,16 @@
 <div class="credits">
   Amadori, Coluccia, Fazzalari, Sparacio
 </div>
-
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 <script>
 const totalCards = 20;
 const wasabiCount = 4;
 const maxClicks = 5;
-
+const supabase = window.supabase.createClient(
+  "https://cfzbgfawnricbcktjofu.supabase.co",
+  "TUA-ANON-KEY"
+);
+  
 let cards, clicks, gameOver;
 let cardElements = [];
 const grid = document.getElementById("grid");
@@ -309,7 +313,7 @@ function startGame() {
 
 function loseGame() {
   gameOver = true;
-
+  aggiorna(1, +1);
   cardElements.forEach(({ card }) => {
     card.classList.add("flipped");
   });
@@ -322,6 +326,35 @@ function winGame() {
   createConfetti();
   gameOver = true;
   setTimeout(() => alert("Hai vinto! 🎉"), 1000);
+}
+
+async function caricaValori() {
+  let { data, error } = await supabase
+    .from('contatori')
+    .select('*')
+    .eq('id', 1)
+    .single();
+
+  if (error) {
+    console.error(error);
+    return;
+  }
+
+  mostra(data);
+}
+  
+async function aggiorna(colonna, delta) {
+let { data } = await supabase
+  .from('contatori')
+  .select('*')
+  .eq('id', 1)
+  .single();
+let nuovoValore = data[colonna] + delta;
+await supabase
+  .from('contatori')
+  .update({ [colonna]: nuovoValore })
+  .eq('id', 1);
+caricaValori();
 }
 
 function createConfetti() {
