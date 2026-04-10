@@ -330,7 +330,7 @@ function winGame() {
 
 async function caricaValori() {
   let { data, error } = await db
-    .from('contatori')
+    .from('WasabiRouletteData')
     .select('*')
     .eq('id', 1)
     .single();
@@ -345,13 +345,13 @@ async function caricaValori() {
   
 async function aggiorna(colonna, delta) {
 let { data } = await db
-  .from('contatori')
+  .from('WasabiRouletteData')
   .select('*')
   .eq('id', 1)
   .single();
 let nuovoValore = data[colonna] + delta;
 await db
-  .from('contatori')
+  .from('WasabiRouletteData')
   .update({ [colonna]: nuovoValore })
   .eq('id', 1);
 caricaValori();
