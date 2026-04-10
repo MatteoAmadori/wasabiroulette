@@ -141,6 +141,7 @@
   .front {
     background: linear-gradient(145deg, #ffa94d, #ff922b);
   }
+  
   #redFlash {
     position: fixed;
     top: 0;
@@ -153,6 +154,7 @@
     z-index: 99999;
     transition: opacity 0.1s ease;
   }
+  
   .back {
     background-color: #ff922b; /* colore arancione */
     transform: rotateY(180deg);
@@ -346,7 +348,7 @@ function flashRed() {
 
   setTimeout(() => {
     flash.style.opacity = "0";
-  }, 500);
+  }, 10);
 }
   
 function winGame() {
