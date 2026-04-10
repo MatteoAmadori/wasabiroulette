@@ -128,6 +128,9 @@
     <menu>DATI</menu>
     <topsection>VITTORIE</topsection>
     <h1><span class="price" id="val1">0</span></h1>
+    <topsection>SCONFITTE</topsection>
+    <h1><span class="price" id="val2">0</span></h1>
+    <button class="play-button">RESET</button>
   </div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 <script>
@@ -151,8 +154,10 @@ async function caricaDati() {
 }
 function mostraDati(dati) {
   document.getElementById("val1").innerText = dati.val1;
+  document.getElementById("val2").innerText = dati.val2;
 }
 caricaDati();
+setInterval(caricaDati, 3000);
 </script>
 </body>
 </html>
