@@ -156,7 +156,7 @@ async function caricaDati() {
 function mostraDati(dati) {
   document.getElementById("val1").innerText = dati.val1;
   document.getElementById("val2").innerText = dati.val2;
-  const money = val1*(1-0.15*5)+val2*(-0.15);
+  const money = dati.val1*(0.25)-dati.val2*(0.15);
   document.getElementById("money").innerText = money;
 }
 caricaDati();
