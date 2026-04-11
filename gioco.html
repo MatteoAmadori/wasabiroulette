@@ -313,7 +313,7 @@ function startGame() {
     const button = document.getElementById("restartBtn");
     
     button.addEventListener("click", () => {
-      if(wasabis === 5) startGame();
+      if(clicks === 5) startGame();
     });
     card.addEventListener("click", () => {
       if (gameOver || card.classList.contains("flipped")) return;
