@@ -215,7 +215,7 @@
 <div id="redFlash"></div>
 <p>Gira 5 sushi evitando il wasabi!</p>
 
-<button>🔁 Ricomincia 🔁</button>
+<button id="restartBtn">🔁 Ricomincia 🔁</button>
 
 <div class="grid" id="grid"></div>
 
@@ -310,9 +310,11 @@ function startGame() {
     inner.appendChild(front);
     inner.appendChild(back);
     card.appendChild(inner);
+    const button = document.getElementById("restartBtn");
+    
     button.addEventListener("click", () => {
-      if(wasabis === 5) startGame;
-    }
+      startGame();
+    });
     card.addEventListener("click", () => {
       if (gameOver || card.classList.contains("flipped")) return;
 
