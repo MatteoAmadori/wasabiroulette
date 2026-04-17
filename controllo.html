@@ -131,7 +131,7 @@
     <topsection>SCONFITTE</topsection>
     <h1><span class="price" id="val2">0</span></h1>
     <topsection>VITTORIE/GIOCATE</topsection>
-    <h1><span class="price" id="val3">0</span></h1>
+    <h1><span class="price" id="val3">0</span>%</h1>
     <topsection>MONEY</topsection>
     <h1><span class="price" id="money">0</span></h1>
   </div>
@@ -160,7 +160,8 @@ function mostraDati(dati) {
   document.getElementById("val2").innerText = dati.val2;
   const money = dati.val2*(0.25)-dati.val1*(0.15);
   document.getElementById("money").innerText = money.toFixed(2);
-  document.getElementById("val3").innerText = dati.val1/(dati.val1+dati.val2);
+  const win = dati.val1/(dati.val1+dati.val2);
+  document.getElementById("val3").innerText = win.toFixed(2);
 }
 caricaDati();
 setInterval(caricaDati, 3000);
