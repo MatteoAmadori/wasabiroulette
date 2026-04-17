@@ -160,7 +160,7 @@ function mostraDati(dati) {
   document.getElementById("val2").innerText = dati.val2;
   const money = dati.val2*(0.25)-dati.val1*(0.15);
   document.getElementById("money").innerText = money.toFixed(2);
-  const win = dati.val1/(dati.val1+dati.val2);
+  const win = dati.val1/(dati.val1+dati.val2)*100;
   document.getElementById("val3").innerText = win.toFixed(2);
 }
 caricaDati();
